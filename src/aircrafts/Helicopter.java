@@ -4,7 +4,7 @@ import src.WeatherTower;
 public class Helicopter extends Aircraft implements Flyable{
     private WeatherTower weatherTower;
 
-    Helicopter(long p_id, String name, Coordinates coordinates) {
+    Helicopter(int p_id, String name, Coordinates coordinates) {
         super(p_id, name, coordinates);
         super.type = "Helicopter";
     }

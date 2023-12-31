@@ -5,8 +5,7 @@ public abstract class Aircraft {
     protected String name;
     protected Coordinates coordinates;
     protected static String type;
-    protected Aircraft(long id, String name, Coordinates coordinates) {
-        this.id = id;
+    protected Aircraft(int p_id, String name, Coordinates coordinates) {
         this.name = name;
         this.coordinates = coordinates;
     }

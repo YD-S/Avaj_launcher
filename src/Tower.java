@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tower {
-    private List<Flyable> observers = new ArrayList<Flyable>();
+    private List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable) {
         observers.add(flyable);

@@ -1,10 +1,10 @@
 package src.aircrafts;
 import src.WeatherTower;
 
-public class Jetplane extends Aircraft implements Flyable{
+public class JetPlane extends Aircraft implements Flyable{
     private WeatherTower weatherTower;
 
-    Jetplane(long p_id, String name, Coordinates coordinates){
+    JetPlane(int p_id, String name, Coordinates coordinates){
         super(p_id, name, coordinates);
         super.type = "Jetplane";
     }

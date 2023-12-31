@@ -3,7 +3,7 @@ import src.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
-    public Baloon(long p_id, String name, Coordinates coordinates) {
+    public Baloon(int p_id,String name, Coordinates coordinates) {
         super(p_id, name, coordinates);
         super.type = "Baloon";
     }
