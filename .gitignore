@@ -39,3 +39,4 @@ bin/
 *.war
 *.ear
 *.nar
+*.iml
