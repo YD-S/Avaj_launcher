@@ -4,29 +4,16 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Simulation {
     private BufferedReader reader;
     private WeatherTower weatherTower;
     private ArrayList<Flyable> flyables = new ArrayList<>();
-    private Map <String, Integer> aircrafts = Map.of(
-        "Baloon", 0,
-        "Helicopter", 0,
-        "JetPlane", 0
-    );
+    private String TargetStrings[] = {"Baloon", "Helicopter", "JetPlane"};
+    private int[] StringCounts = new int[TargetStrings.length];
+
 
     public Simulation() {}
-
-    public void Increment(String type) {
-        int currentValue = aircrafts.get(type);
-        int newValue = currentValue + 1;
-        aircrafts.put(type, newValue);
-    }
-
-    public int GetId(String type) {
-        return aircrafts.get(type);
-    }
     public void FileValidate(String Path) throws IOException, LauncherException {
         int lines_cont = 0;
         reader = new BufferedReader(new FileReader(Path));
@@ -54,12 +41,16 @@ public class Simulation {
                 throw new LauncherException("Invalid number of arguments");
 
             try {
-                switch (tokens[0]) {
-                    case "Baloon" -> Increment("Baloon");
-                    case "Helicopter" -> Increment("Helicopter");
-                    case "JetPlane" -> Increment("JetPlane");
+                int j = 0;
+                for (; j < TargetStrings.length - 1; j++) {
+                    if (tokens[0].equalsIgnoreCase(TargetStrings[j]))
+                        break;
                 }
-                Flyable flyable = AircraftFactory.newAircraft(tokens[0], tokens[1], Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]));
+                String currentString = TargetStrings[j];
+                if (tokens[0].equalsIgnoreCase(currentString)) {
+                    StringCounts[j]++;
+                }
+                Flyable flyable = AircraftFactory.newAircraft(tokens[0], tokens[1], Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]), StringCounts);
                 flyables.add(flyable);
             }catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

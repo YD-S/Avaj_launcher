@@ -11,9 +11,9 @@ public class Main {
             Simulation simulation = new Simulation();
             simulation.FileValidate(args[0]);
             simulation.run();
-        }catch (LauncherException e) {
+        } catch (LauncherException e) {
             System.out.println(e.getMessage());
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error: the file could not be read or does not exist.");
         }
     }

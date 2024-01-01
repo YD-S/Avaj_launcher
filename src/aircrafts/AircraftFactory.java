@@ -1,16 +1,16 @@
 package src.aircrafts;
 
 public class AircraftFactory {
-    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
+    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height, int[] id) {
         type = type.toLowerCase();
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
         switch (type) {
             case "baloon":
-                return new Baloon(name, coordinates);
+                System.out.println(id[0]);
             case "helicopter":
-                return new Helicopter(name, coordinates);
+                return new Helicopter(id[1], name, coordinates);
             case "jetplane":
-                return new JetPlane(name, coordinates);
+                return new JetPlane(id[2], name, coordinates);
             default:
                 throw new IllegalArgumentException("Invalid aircraft type: " + type);
         }
