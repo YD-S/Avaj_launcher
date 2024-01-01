@@ -37,9 +37,8 @@ public class Simulation {
             String[] tokens = line.split(" ");
             if (tokens.length != 5)
                 throw new LauncherException("Invalid number of arguments");
-            if (Integer.parseInt(tokens[2]) < 0 || Integer.parseInt(tokens[3]) < 0 || Integer.parseInt(tokens[4]) < 0)
-                throw new LauncherException("Invalid number of arguments");
-
+            if (!(tokens[2].matches("[0-9]+") || tokens[3].matches("[0-9]+") || tokens[4].matches("[0-9]+")))
+                throw new LauncherException("Invalid type of arguments");
             try {
                 int j = 0;
                 for (; j < TargetStrings.length - 1; j++) {

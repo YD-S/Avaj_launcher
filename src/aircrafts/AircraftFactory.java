@@ -6,7 +6,7 @@ public class AircraftFactory {
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
         switch (type) {
             case "baloon":
-                System.out.println(id[0]);
+                return new Baloon(id[0], name, coordinates);
             case "helicopter":
                 return new Helicopter(id[1], name, coordinates);
             case "jetplane":
