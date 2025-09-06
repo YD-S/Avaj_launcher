@@ -1,5 +1,4 @@
 package src;
-import src.*;
 import java.io.IOException;
 
 public class Main {
